@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YelpCamp</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Yelp Camp">
+        <meta name="author" content="Vladimir Nikolic">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"></link>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+
+    </head>
+        <body>
+
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">BearCamp</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                           <% if(!currentUser){ %>  <!--If current user is empty shows login and sign up-->
+                                <li><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> &nbsp;&nbsp;Login</a></li>
+                                <li><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> &nbsp;&nbsp;Sign Up</a></li>
+                            <% } else{ %>
+
+                                <li><a href="#">Signed In As <%= currentUser.username%></a></li>
+                                <li><a href="/logout">Log Out</a></li>
+                           <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <% if(error  && error.length > 0) {%>
+                 <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+            <% } %>
+            <% if(success  && success.length > 0) {%>
+
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+            <% } %>
+
+             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
