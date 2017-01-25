@@ -18,8 +18,8 @@ var commentRoutes = require("./routes/comments"),
 
 
 
-mongoose.connect(process.env.DATABASEURL);//name of the database, 
-// mongoose.connect("mongodb://alghouty:idph2125@ds145395.mlab.com:45395/alghouty");//name of the database,
+// mongoose.connect(process.env.DATABASEURL);//name of the database,
+mongoose.connect("mongodb://alghouty:idph2125@ds145395.mlab.com:45395/alghouty");//name of the database,
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs"); //template
 app.use(express.static(__dirname +'/public'));
@@ -49,10 +49,10 @@ app.use(function(req,res, next){
 
 
 app.use("/",authRoutes);
-app.use("/campgrounds", campgroundRoutes); // smanjuje kod, nije potrebno u putanji stavljati campgrounds, nego se ovde definise, podrazumeva se
-app.use("/campgrounds/:id/comments", commentRoutes); 
+app.use("/campgrounds", campgroundRoutes);
+app.use("/campgrounds/:id/comments", commentRoutes);
 
 
-app.listen(process.env.PORT, process.env.ip, function () {
-    console.log("The YelpCamp Server Has Started!");
+app.listen(process.env.PORT , process.env.ip, function () {
+    console.log("The BearCamp Server Has Started!");
 });
